@@ -8,6 +8,7 @@ export default class App extends React.Component {
         <Text>Fluid Sensor App</Text>
         <Text>Make changes to the App.js file to change what appears here.</Text>
         <Text>Shake your phone to open the developer menu.</Text>
+        <Text>Team info: fluid sensor!</Text>
       </View>
     );
   }
