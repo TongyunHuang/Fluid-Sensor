@@ -6,6 +6,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Text>FLDZ Sensor App</Text>
+	<style={styles.titleText}>
         <Text>Make changes to the App.js file to change what appears here.</Text>
         <Text>Shake your phone to open the developer menu.</Text>
       </View>
