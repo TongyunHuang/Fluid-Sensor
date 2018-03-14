@@ -5,7 +5,8 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Fluid Sensor App</Text>
+        <Text>FLDZ Sensor App</Text>
+	<style={styles.titleText}>
         <Text>Make changes to the App.js file to change what appears here.</Text>
         <Text>Shake your phone to open the developer menu.</Text>
         <Text>Team info: fluid sensor!</Text>
