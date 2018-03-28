@@ -9,7 +9,7 @@ import {StackNavigator} from 'react-navigation';
 export default class App extends React.Component {
     render() {
       return (
-          <Cover/>
+          <AppNavigator/>
       );
     }
 }
