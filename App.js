@@ -1,24 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
+import Cover from './src/components/CoverPage/Cover';
+import Fields from './src/components/HomePage/Fields';
+import HomePage from './src/components/HomePage/HomePage';
+import {StackNavigator} from 'react-navigation';
+
 
 export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Fluid Sensor App</Text>
-        <Text>Make changes to the App.js file to change what appears here.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-        <Text>Team info: fluid sensor!</Text>
-      </View>
-    );
-  }
+    render() {
+      return (
+          <AppNavigator/>
+      );
+    }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const AppNavigator = StackNavigator({
+    Cover: { screen: Cover },
+    HomePage: { screen: HomePage }
+})
