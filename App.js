@@ -4,12 +4,13 @@ import Cover from './src/components/CoverPage/Cover';
 import Fields from './src/components/HomePage/Fields';
 import HomePage from './src/components/HomePage/HomePage';
 import {StackNavigator} from 'react-navigation';
+import Login from './src/components/LoginPage/Login';
 
 
 export default class App extends React.Component {
     render() {
       return (
-          <AppNavigator/>
+          <Login/>
       );
     }
 }

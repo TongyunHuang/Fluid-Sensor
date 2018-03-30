@@ -25,8 +25,6 @@ export default class Fields extends Component{
         
     }
 
-
-
     render(){
         return (
             <View style={styles.container}>
