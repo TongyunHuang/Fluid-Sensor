@@ -15,6 +15,7 @@ export default class InfoForm extends Component {
                     secureTextEntry={true}
                     placeholderTextColor="#36526D"
                     />
+               
                   <TouchableOpacity>
                       <Text style= {styles.button}>Login</Text>
                   </TouchableOpacity>
