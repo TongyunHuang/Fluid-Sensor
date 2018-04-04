@@ -21,8 +21,11 @@
   "dependencies": {
     "expo": "^25.0.0",
     "firebase": "^4.12.1",
+    "moment": "^2.22.0",
     "react": "16.2.0",
     "react-native": "0.52.0",
+    "react-native-fbsdk": "^0.7.0",
+    "react-navigation": "^1.5.9",
     "watchman": "^1.0.0"
   }
 }

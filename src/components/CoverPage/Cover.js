@@ -8,17 +8,18 @@ export default class Cover extends React.Component {
     header: null,
     
   }
+
     render() {
       return (
         <View style={styles.wrapper}>
           <Text style = {styles.title}>Hi There!</Text>
           <Button
           title = 'Go To HomePage'
-          onPress = {() => this.props.navigation.navigate('HomePage')}
+          onPress = {() => this.props.navigation.navigate('LoginPage')}
           />
         </View>
 
-      );
+      ); 
     }
   }
   

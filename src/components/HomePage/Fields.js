@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 import { AppRegistry, Text, TextInput, View, StyleSheet, Button} from 'react-native';
-import Calculator, { totalrequiredwater, waterdrank, remainingwater } from '../../Backend/Calculator';
-import calculate from '../../Backend/Calculator'
+import Calculator from '../../Backend/Calculator';
+import calculate from '../../Backend/Calculator';
+import * as firebase from 'firebase';
+
 
 
 export default class Fields extends Component{
-    
+
+
+    userRef =  firebase.database().ref('Accounts').child(firebase.auth().currentUser.uid);
+
     constructor(props){
         super(props);
+        this.gotData = this.gotData.bind(this);
         this.state ={
-            text: parseInt(0),
-            total: parseInt(0),
+            waterTarget:''
         }
     }
 
@@ -24,6 +29,32 @@ export default class Fields extends Component{
         this.textInput.clear();
         
     }
+    
+    componentWillMount(){
+        this.userRef.on('value', this.gotData, this.errorData);
+    }
+
+    componentDidUpdate(){
+        console.log(this.state.waterTarget);
+    }
+
+    gotData(data) {
+        let allData = data.val();
+        this.setState({waterTarget: allData.waterTarget});
+    }
+
+    errorData(data) {
+        console.log('Error!');
+    }
+
+    changeWater(){
+
+        firebase.database().ref('Accounts').child(firebase.auth().currentUser.uid).update({
+            waterTarget : 1
+        });
+
+       console.log(firebase.auth().currentUser.uid);
+    }
 
     render(){
         return (
@@ -33,17 +64,20 @@ export default class Fields extends Component{
                 ref={input => {this.textInput = input}}
                 style={styles.input}
                 placeholder = 'input here'
-                onChangeText={this.storeText}
+                onChangeText={(typedText) => {this.setState({text:parseInt(typedText)})}}
                 />
                 <Button
                 style={styles.forButton}
                 title = "Calculate!"
                 onPress={this.calculateTotal}
                 />
-                <Text style= {styles.forLabel}>Amount of water drank today: </Text>
-                <Text style={styles.forText}>{waterdrank}</Text>
-                <Text style= {styles.forLabel}>Amount of water remaining:</Text>
-                <Text style={styles.forText}>{remainingwater}</Text>
+                <Text style= {styles.forLabel}>waterTarget: </Text>
+                <Text style={styles.forText}>{this.state.waterTarget}</Text>
+                <Text style= {styles.forLabel}>Month:</Text>
+                <Text style={styles.forText}>{10}</Text>
+                <Button
+                title = "Change watertarget"
+                onPress={this.changeWater}/>
             </View>
         );
     }
