@@ -57,17 +57,16 @@ export default class CreateAccount extends React.Component {
             lastName: this.state.lastName,
             weight: this.state.weight,
             waterTarget: (parseInt(this.state.weight) * (2/3)),
-            currentDay: current.getDate(),
-            currentMonth: current.getMonth(),
+            currentDate: current.getDate()
         });
-        console.log('abc');
+        console.log(current.getDate() + " " + current.getMonth());
         this.props.navigation.navigate('HomePage');
     }
     Buttonclick = () => { 
-        
+        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(
         firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then(
             this.createSuccess
-    );
+    )).catch(console.log("persistence error"));
     }
 
     failCreate = () => {

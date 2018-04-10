@@ -3,6 +3,7 @@ import { AsyncStorage, Button, StyleSheet, Text, View, TextInput, Image } from '
 import Fields from './Fields';
 import Calculator, {calculate, totalrequiredwater,waterdrank,remainingwater} from '../../Backend/Calculator';
 import * as firebase from 'firebase';
+import FieldsLoggedIn from './FieldsLoggedIn';
 
 export default class HomePage extends React.Component {
 
@@ -25,7 +26,7 @@ export default class HomePage extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.logoContainer}>
-          <Fields/> 
+          <FieldsLoggedIn/> 
           <Button 
           title="log out"
           onPress={this.logOut}/>

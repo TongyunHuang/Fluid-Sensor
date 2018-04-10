@@ -1,22 +1,36 @@
 import React from 'react';
-import {Button, StyleSheet, Text, View, TextInput } from 'react-native';
+import {AsyncStorage ,Button, StyleSheet, Text, View, TextInput } from 'react-native';
 import {StackNavigator} from 'react-navigation';
 import HomePage from '../HomePage/HomePage';
 
 export default class Cover extends React.Component {
+  componentWillMount(){
+    AsyncStorage.getItem('uid', (error, result) => this.decider(result));
+  }
   static navigationOptions = {
     header: null,
     
+  }
+
+  decider(result){
+    if (result === null){
+      this.navigateLogin();
+    } else {
+      this.navigateHomeLogged();
+    }
+  }
+
+  navigateHomeLogged = () => {
+    this.props.navigation.navigate('HomeLog');
+  }
+  navigateLogin = () => {
+    this.props.navigation.navigate('LoginPage');
   }
 
     render() {
       return (
         <View style={styles.wrapper}>
           <Text style = {styles.title}>Hi There!</Text>
-          <Button
-          title = 'Go To HomePage'
-          onPress = {() => this.props.navigation.navigate('LoginPage')}
-          />
         </View>
 
       ); 

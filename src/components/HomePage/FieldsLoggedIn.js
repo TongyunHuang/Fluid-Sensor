@@ -20,16 +20,18 @@ export default class Fields extends Component{
     }
 
     
-    userRef = firebase.database().ref('Accounts').child(firebase.auth().currentUser.uid);
-    
+    userRef;
+
 
     componentWillMount(){
         AsyncStorage.getItem('uid', (error, result) => this.setuid(result));
-        this.userRef.on('value', this.gotData, this.errorData);
+        
     }
 
     seturef = (uid) => {
-        this.userRef = firebase.database().ref('Accounts').child(firebase.auth().currentUser.uid);
+        this.userRef = firebase.database().ref('Accounts').child(uid);
+        this.userRef.on('value', this.gotData, this.errorData);
+
     }
     setuid = (result) => {
         this.setState({currentuid: result}, this.seturef(result));
@@ -70,6 +72,9 @@ export default class Fields extends Component{
        console.log(firebase.auth().currentUser.uid);
     }
 
+    loguid(){
+        AsyncStorage.getItem('uid', (error,result) => console.log(result));
+    }
 
     render(){
         return (
@@ -90,6 +95,9 @@ export default class Fields extends Component{
                 <Text style={styles.forText}>{this.state.waterTarget}</Text>
                 <Text style= {styles.forLabel}>Month:</Text>
                 <Text style={styles.forText}>{10}</Text>
+                <Button
+                title = "log uid"
+                onPress={this.loguid}/>
             </View>
         );
     }
