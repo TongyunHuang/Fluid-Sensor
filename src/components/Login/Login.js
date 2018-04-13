@@ -9,7 +9,7 @@ export default class Login extends Component {
                <View style={styles.logolimits}>
                  <Image 
                  style= {styles.logo}
-                 source ={require('../../images/wavelogo.png')}
+                 source ={require('../../images/logoWave.gif')}
                  />
                  <Text style={styles.appName}> Fluid Sensor </Text>
                </View>
@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
     },
     logo: {
         width:150,
-        height:150
+        height:150,
+        opacity:1
     },
     appName: {
         color:'#36526D',
