@@ -5,7 +5,7 @@ import HomeWaves from './src/components/Home/HomeWaves';
 export default class App extends React.Component {
   render() {
     return (
-        <Login/>
+        <HomeWaves/>
         
     );
   }
@@ -14,7 +14,6 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    //backgroundImage: 'url(map.png)',
     backgroundColor: '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',

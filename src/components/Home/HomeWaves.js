@@ -5,7 +5,7 @@ export default class HomeWaves extends Component {
         return (
             <Image
             style= {styles.logo}
-            source={require('../../images/animation-2.gif')}
+            source={require('../../images/backgroundWaves.gif')}
           />
 
         );
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         flex: 1,
         position: 'absolute',
         width: '100%',
-        height: '100%',
+        height: '101%',
         justifyContent: 'center'
     },
 });
